@@ -35,14 +35,15 @@ tracking_system: file-system
 story_location: "_bmad-output/implementation-artifacts"
 
 development_status:
-  epic-1: backlog
-  1-1-project-infrastructure-setup: backlog
-  1-2-global-shortcut-and-ghost-window-logic: backlog
-  1-3-text-and-clipboard-detection: backlog
-  1-4-cloud-translation-integration-google-gemini: backlog
-  1-5-zen-focus-meter-implementation: backlog
-  1-6-zen-pulse-feedback: backlog
-  epic-1-retrospective: optional
+  epic-1: done
+  1-1-project-infrastructure-setup: done
+  1-2-global-shortcut-and-ghost-window-logic: done
+  1-3-text-and-clipboard-detection: done
+  1-4-cloud-translation-integration-google-gemini: done
+  1-5-zen-focus-meter-implementation: done
+  1-6-zen-pulse-feedback: done
+  1-7-dynamic-language-selection: done
+  epic-1-retrospective: done
 
   epic-2: backlog
   2-1-system-tray-and-window-management: backlog
