@@ -29,9 +29,28 @@ pub async fn deduct_focus_points(app: AppHandle, amount: u32) -> Result<u32, Str
         let _ = store.save();
     }
 
-    // Notify all windows of the update
     let _ = app.emit("focus-update", new_balance);
+    Ok(new_balance)
+}
 
+// =============================================================================
+// TEST MODE COMMANDS
+// =============================================================================
+
+/// Recharges focus points by a fixed amount.
+/// Only for development/testing purposes.
+#[tauri::command]
+pub async fn debug_recharge_focus(app: AppHandle) -> Result<u32, String> {
+    let current = get_balance(&app);
+    let new_balance = current + 100;
+    
+    {
+        let store = app.store(STORE_PATH).expect("Failed to open store");
+        store.set(FOCUS_KEY, json!(new_balance));
+        let _ = store.save();
+    }
+
+    let _ = app.emit("focus-update", new_balance);
     Ok(new_balance)
 }
 

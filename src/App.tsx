@@ -23,7 +23,7 @@ function App() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const mainRef = useRef<HTMLElement>(null);
 
-  const { balance, fetchBalance, deduct, targetLang, setTargetLang } = useZenFocusStore();
+  const { balance, fetchBalance, deduct, recharge, targetLang, setTargetLang } = useZenFocusStore();
 
   const handleTranslate = async (textToTranslate: string, lang?: string) => {
     const trimmed = textToTranslate.trim();
@@ -178,7 +178,7 @@ function App() {
           </div>
         </div>
 
-        <div className="min-h-[120px] bg-slate-950 border border-dashed border-slate-800 rounded-lg p-4 relative">
+        <div className="min-h-[120px] max-h-[180px] overflow-y-auto bg-slate-950/50 border border-dashed border-slate-800 rounded-lg p-4 relative custom-scrollbar">
           {isLoading ? (
             <div className="absolute inset-0 flex items-center justify-center bg-slate-900/50 rounded-lg">
               <BreathingLoader />
@@ -191,7 +191,12 @@ function App() {
           ) : balance <= 0 && !translation ? (
             <div className="h-full flex flex-col items-center justify-center text-center space-y-2">
               <p className="text-slate-400 text-sm font-medium">Zen Focus Depleted</p>
-              <button className="text-xs text-indigo-400 hover:text-indigo-300 transition-colors">Recharge Energy</button>
+              <button 
+                onClick={recharge}
+                className="text-xs text-indigo-400 hover:text-indigo-300 transition-colors"
+              >
+                Recharge Energy (Test Mode +100)
+              </button>
             </div>
           ) : translation ? (
             <p className="text-slate-200 leading-relaxed text-sm whitespace-pre-wrap">{translation}</p>

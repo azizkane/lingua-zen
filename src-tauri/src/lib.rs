@@ -51,6 +51,7 @@ pub fn run() {
             ai_commands::translate_text,
             store::deduct_focus_points,
             store::get_focus_balance,
+            store::debug_recharge_focus,
             window_commands::hide_window
         ])
         .run(tauri::generate_context!())

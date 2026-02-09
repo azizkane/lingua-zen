@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 html, body {
-  background-color: #0f172a; /* Force solid color for testing */
+  background-color: transparent;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -13,4 +13,31 @@ html, body {
 #root {
   height: 100%;
   width: 100%;
+}
+
+/* Custom Cohesive Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5); /* slate-900 transparent */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3); /* indigo-500 transparent */
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.6); /* indigo-500 more opaque */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.3) rgba(15, 23, 42, 0.5);
 }

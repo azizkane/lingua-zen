@@ -8,11 +8,11 @@ interface ZenFocusState {
   targetLang: string;
   fetchBalance: () => Promise<void>;
   deduct: (amount: number) => Promise<boolean>;
+  recharge: () => Promise<void>;
   setTargetLang: (lang: string) => void;
 }
 
 export const useZenFocusStore = create<ZenFocusState>((set, get) => {
-  // Listen for updates from Rust (multi-window sync)
   listen<number>("focus-update", (event) => {
     set({ balance: event.payload });
   });
@@ -38,6 +38,14 @@ export const useZenFocusStore = create<ZenFocusState>((set, get) => {
       } catch (error) {
         console.error("Deduction failed:", error);
         return false;
+      }
+    },
+    recharge: async () => {
+      try {
+        const newBalance = await invoke<number>("debug_recharge_focus");
+        set({ balance: newBalance });
+      } catch (error) {
+        console.error("Recharge failed:", error);
       }
     },
     setTargetLang: (lang: string) => {
