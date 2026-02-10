@@ -51,15 +51,15 @@ development_status:
   2-3-sticky-window-mode: done
   epic-2-retrospective: done
 
-  epic-3: in-progress
-  3-1-explainer-mode: in-progress
-  3-2-mnemonics-generator: backlog
-  3-3-social-hazard-warning-paid: backlog
-  epic-3-retrospective: optional
+  epic-3: done
+  3-1-explainer-mode: done
+  3-2-mnemonics-generator: done
+  3-3-social-hazard-warning-paid: done
+  epic-3-retrospective: done
 
-  epic-4: backlog
-  4-1-subscription-ui-and-stripe-handoff: backlog
-  4-2-deep-link-handling-and-activation: backlog
+  epic-4: in-progress
+  4-1-subscription-ui-and-stripe-handoff: done
+  4-2-deep-link-handling-and-activation: ready-for-dev
   epic-4-retrospective: optional
 
   epic-5: backlog

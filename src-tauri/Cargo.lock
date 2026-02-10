@@ -2346,6 +2346,7 @@ dependencies = [
  "gemini-rs",
  "keyring",
  "once_cell",
+ "openrouter",
  "reqwest 0.13.2",
  "serde",
  "serde_json",
@@ -2865,6 +2866,20 @@ dependencies = [
  "is-wsl",
  "libc",
  "pathdiff",
+]
+
+[[package]]
+name = "openrouter"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e69904f3cb534ca6904ece3a7a8ea071812e1e52379b9056bf5d66db67d450e9"
+dependencies = [
+ "reqwest 0.12.28",
+ "serde",
+ "serde-this-or-that",
+ "serde_json",
+ "thiserror 2.0.18",
+ "time",
 ]
 
 [[package]]
@@ -4005,6 +4020,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "serde-this-or-that"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f90e7ee61f57b2b1a195326bf7ee88651d3d5e688f34bd5971110851764200bf"
+dependencies = [
+ "serde",
+]
+
+[[package]]
 name = "serde-untagged"
 version = "0.1.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4053,6 +4077,7 @@ version = "1.0.149"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "83fc039473c5595ace860d8c4fafa220ff474b3fc6bfdb4293327f1a37e94d86"
 dependencies = [
+ "indexmap 2.13.0",
  "itoa",
  "memchr",
  "serde",

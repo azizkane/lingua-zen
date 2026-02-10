@@ -1,6 +1,6 @@
 # Story 3.1: Explainer Mode
 
-Status: in-progress
+Status: done
 
 ## Story
 
@@ -19,23 +19,22 @@ so that I can truly understand the meaning beyond just a direct translation.
 
 ## Tasks / Subtasks
 
-- [ ] Task 1: Backend AI Implementation (AC: 2)
-  - [ ] Implement the `explain` method in `src-tauri/src/ai/gemini.rs`.
-  - [ ] Create a `translate_and_explain` or separate `explain_text` command.
-- [ ] Task 2: Frontend Store Update (AC: 3)
-  - [ ] Ensure `deduct(3)` is handled correctly.
-- [ ] Task 3: UI Implementation (AC: 1, 5, 6)
-  - [ ] Add "Explain" button to `App.tsx`.
-  - [ ] Add visual feedback for the higher energy cost.
+- [x] Task 1: Backend AI Implementation (AC: 2)
+  - [x] Implemented `explain` method in `src-tauri/src/ai/gemini.rs`.
+  - [x] Created `explain_text` command.
+- [x] Task 2: Frontend Store Update (AC: 3)
+  - [x] Handled `deduct(3)` in `useZenTranslation.ts`.
+- [x] Task 3: UI Implementation (AC: 1, 5, 6)
+  - [x] Added "Explain" button to `GhostWindow.tsx`.
+  - [x] Implemented split-pane layout with smooth animation.
+  - [x] Added loading state for explanation.
 
 ## Dev Notes
 
 ### Technical Stack
-- **Prompt Engineering:** The prompt should be: "Explain the following text or concept simply and concisely in English: [TEXT]"
-- **Energy Cost:** Logic already exists in `deduct_focus_points`.
-
-### Implementation Guardrails
-- **UX:** Clear distinction between "Translate" and "Explain".
+- **Prompt Engineering:** Centralized in `src-tauri/src/ai/prompts.rs`.
+- **UI:** Modularized into components and custom hooks.
+- **Layout:** Responsive split-pane with CSS transitions.
 
 ## Dev Agent Record
 
@@ -46,5 +45,16 @@ gpt-4o
 ### Debug Log References
 
 ### Completion Notes List
+- Implemented Explainer Mode with side-by-side view.
+- Centralized prompting logic.
+- Refactored frontend into modular components.
+- Fixed layout bugs and improved z-index management.
 
 ### File List
+- `src-tauri/src/ai/prompts.rs`
+- `src-tauri/src/ai/gemini.rs`
+- `src-tauri/src/commands/ai_commands.rs`
+- `src/hooks/useZenTranslation.ts`
+- `src/components/ghost/GhostWindow.tsx`
+- `src/components/settings/SettingsWindow.tsx`
+- `src/App.tsx`

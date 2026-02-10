@@ -1,6 +1,9 @@
-use tauri::WebviewWindow;
+use tauri::{WebviewWindow, AppHandle};
+use tauri_plugin_opener::OpenerExt;
 use std::sync::atomic::{AtomicBool, Ordering};
 use once_cell::sync::Lazy;
+use std::env;
+use dotenvy::dotenv;
 
 // Global state for window behaviors
 static IS_STICKY: Lazy<AtomicBool> = Lazy::new(|| AtomicBool::new(false));
@@ -41,5 +44,21 @@ pub async fn start_drag(window: WebviewWindow) -> Result<(), String> {
         set_dragging(false);
         e.to_string()
     })?;
+    Ok(())
+}
+
+#[tauri::command]
+pub async fn open_checkout(app: AppHandle) -> Result<(), String> {
+    // Explicitly load .env to ensure the variable is accessible
+    dotenv().ok();
+    
+    let checkout_url = env::var("STRIPE_PRO_PAYMENT_LINK")
+        .map_err(|_| "STRIPE_PRO_PAYMENT_LINK not set in .env. Please check your configuration.".to_string())?;
+
+    println!("INFO: Opening checkout URL: {}", checkout_url);
+
+    app.opener()
+        .open_url(&checkout_url, None::<&str>)
+        .map_err(|e| format!("Failed to open browser: {}", e))?;
     Ok(())
 }
