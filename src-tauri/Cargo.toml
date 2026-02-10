@@ -33,4 +33,5 @@ tokio = { version = "1.49.0", features = ["full"] }
 dotenvy = "0.15.7"
 async-trait = "0.1.89"
 gemini-rs = "2.0.0"
+once_cell = "1.21.3"
 

@@ -2,7 +2,6 @@
 stepsCompleted: ['step-01-validate-prerequisites', 'step-02-design-epics', 'step-03-create-stories', 'step-04-final-validation']
 inputDocuments: ['_bmad-output/planning-artifacts/prd.md', '_bmad-output/planning-artifacts/architecture.md']
 ---
-
 # Lingua-Zen - Epic Breakdown
 
 ## Overview
@@ -93,22 +92,27 @@ This document provides the complete epic and story breakdown for Lingua-Zen, dec
 ## Epic List
 
 ### Epic 1: Core Ghost UI & System Integration
+
 **Epic Goal:** Users can invoke Lingua-Zen from anywhere, instantly translate selected text, and receive seamless visual feedback, while understanding their current "Zen Focus" status.
 **FRs covered:** FR1, FR2, FR5, FR6, FR7, FR8, FR12, FR13, FR14, FR15, FR24, FR25.
 
 ### Epic 2: Settings & Persistent Control Center
+
 **Epic Goal:** Users can configure their Lingua-Zen experience and access their translation history and other tools from a dedicated, persistent interface.
 **FRs covered:** FR3, FR4, FR21, FR22, FR23, FR27.
 
 ### Epic 3: AI-Powered Insights & Learning
+
 **Epic Goal:** Users can enhance their comprehension and learning with AI-powered insights, including advanced explanations and cultural safety.
 **FRs covered:** FR9, FR10, FR11.
 
 ### Epic 4: Subscription & Premium Access
+
 **Epic Goal:** Users can easily upgrade to a premium experience, unlocking all advanced features and continuous "Zen" flow.
 **FRs covered:** FR16.
 
 ### Epic 5: Knowledge & Sharing Management
+
 **Epic Goal:** Users can permanently save, organize, and share their linguistic discoveries and insights.
 **FRs covered:** FR17, FR18, FR19, FR20, FR26.
 

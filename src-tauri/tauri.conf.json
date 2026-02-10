@@ -14,13 +14,28 @@
       {
         "label": "main",
         "title": "Lingua-Zen",
-        "width": 600,
+        "width": 500,
+        "minWidth": 450,
+        "maxWidth": 600,
         "height": 400,
+        "minHeight": 400,
+        "maxHeight": 800,
         "visible": false,
         "decorations": false,
         "alwaysOnTop": true,
         "skipTaskbar": true,
         "transparent": true,
+        "center": true
+      },
+      {
+        "label": "settings",
+        "title": "Lingua-Zen Settings",
+        "width": 800,
+        "height": 600,
+        "visible": false,
+        "decorations": false,
+        "skipTaskbar": false,
+        "transparent": false,
         "center": true
       }
     ],

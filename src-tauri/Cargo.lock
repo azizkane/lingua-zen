@@ -2345,6 +2345,7 @@ dependencies = [
  "enigo",
  "gemini-rs",
  "keyring",
+ "once_cell",
  "reqwest 0.13.2",
  "serde",
  "serde_json",

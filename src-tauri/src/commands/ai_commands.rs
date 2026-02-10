@@ -14,8 +14,17 @@ pub async fn translate_text(
     target_lang: String,
     state: State<'_, AIState>,
 ) -> Result<String, String> {
-    println!("DEBUG: Starting translation for text: '{}'", text);
+    println!("DEBUG: Starting translation for text: '{}' to {}", text, target_lang);
     state.service.translate(&text, &target_lang).await
+}
+
+#[tauri::command]
+pub async fn explain_text(
+    text: String,
+    state: State<'_, AIState>,
+) -> Result<String, String> {
+    println!("DEBUG: Starting explanation for text: '{}'", text);
+    state.service.explain(&text).await
 }
 
 pub fn init_ai() -> AIState {
@@ -24,8 +33,6 @@ pub fn init_ai() -> AIState {
     let api_key = env::var("GEMINI_API_KEY")
         .or_else(|_| env::var("GOOGLE_GEMINI_API_KEY"))
         .expect("GEMINI_API_KEY or GOOGLE_GEMINI_API_KEY must be set in .env");
-
-    println!("DEBUG: AI initialized with key (first 4 chars): {}...", &api_key[0..4]);
 
     let provider = GeminiProvider::new(api_key);
     AIState {

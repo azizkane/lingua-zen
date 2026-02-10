@@ -45,14 +45,14 @@ development_status:
   1-7-dynamic-language-selection: done
   epic-1-retrospective: done
 
-  epic-2: in-progress
-  2-1-system-tray-and-window-management: ready-for-dev
-  2-2-settings-ui-and-configuration-store: backlog
-  2-3-sticky-window-mode: backlog
-  epic-2-retrospective: optional
+  epic-2: done
+  2-1-system-tray-and-window-management: done
+  2-2-settings-ui-and-configuration-store: done
+  2-3-sticky-window-mode: done
+  epic-2-retrospective: done
 
-  epic-3: backlog
-  3-1-explainer-mode: backlog
+  epic-3: in-progress
+  3-1-explainer-mode: in-progress
   3-2-mnemonics-generator: backlog
   3-3-social-hazard-warning-paid: backlog
   epic-3-retrospective: optional
