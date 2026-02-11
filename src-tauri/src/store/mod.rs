@@ -5,8 +5,9 @@ use serde_json::json;
 const STORE_PATH: &str = "zen_focus.json";
 const FOCUS_KEY: &str = "focus_balance";
 const LANG_KEY: &str = "target_lang";
-const INSIGHT_LANG_KEY: &str = "insight_lang"; // New key
+const INSIGHT_LANG_KEY: &str = "insight_lang";
 const MODEL_KEY: &str = "active_model";
+const PRO_KEY: &str = "is_pro"; 
 
 const DEFAULT_BALANCE: u32 = 10;
 const DEFAULT_LANG: &str = "French";
@@ -23,6 +24,11 @@ pub fn get_balance(app: &AppHandle) -> u32 {
 
 #[tauri::command]
 pub async fn deduct_focus_points(app: AppHandle, amount: u32) -> Result<u32, String> {
+    let is_pro = get_pro_status(&app);
+    if is_pro {
+        return Ok(999);
+    }
+
     let current = get_balance(&app);
     if current < amount {
         return Err("Insufficient Zen Focus points".to_string());
@@ -106,6 +112,33 @@ pub async fn save_active_model(app: AppHandle, model: String) -> Result<(), Stri
         let _ = store.save();
     }
     let _ = app.emit("model-update", model);
+    Ok(())
+}
+
+// =============================================================================
+// PRO STATUS
+// =============================================================================
+
+pub fn get_pro_status(app: &AppHandle) -> bool {
+    let store = app.store(STORE_PATH).expect("Failed to open store");
+    store.get(PRO_KEY)
+        .and_then(|v| v.as_bool())
+        .unwrap_or(false)
+}
+
+#[tauri::command]
+pub async fn get_pro_active(app: AppHandle) -> Result<bool, String> {
+    Ok(get_pro_status(&app))
+}
+
+#[tauri::command]
+pub async fn save_pro_status(app: AppHandle, status: bool) -> Result<(), String> {
+    {
+        let store = app.store(STORE_PATH).expect("Failed to open store");
+        store.set(PRO_KEY, json!(status));
+        let _ = store.save();
+    }
+    let _ = app.emit("pro-update", status);
     Ok(())
 }
 

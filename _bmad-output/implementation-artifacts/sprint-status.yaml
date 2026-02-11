@@ -1,34 +1,10 @@
-# generated: 2026-02-09
+# generated: 2026-02-10
 # project: lingua-zen
 # project_key: NOKEY
 # tracking_system: file-system
 # story_location: _bmad-output/implementation-artifacts
 
-# STATUS DEFINITIONS:
-# ==================
-# Epic Status:
-#   - backlog: Epic not yet started
-#   - in-progress: Epic actively being worked on
-#   - done: All stories in epic completed
-#
-# Story Status:
-#   - backlog: Story only exists in epic file
-#   - ready-for-dev: Story file created, ready for development
-#   - in-progress: Developer actively working on implementation
-#   - review: Implementation complete, ready for review
-#   - done: Story completed
-#
-# Retrospective Status:
-#   - optional: Can be completed but not required
-#   - done: Retrospective has been completed
-#
-# WORKFLOW NOTES:
-# ===============
-# - Mark epic as 'in-progress' when starting work on its first story
-# - SM typically creates next story ONLY after previous one is 'done' to incorporate learnings
-# - Dev moves story to 'review', then Dev runs code-review (fresh context, ideally different LLM)
-
-generated: 2026-02-09
+generated: 2026-02-10
 project: lingua-zen
 project_key: NOKEY
 tracking_system: file-system
@@ -59,10 +35,13 @@ development_status:
 
   epic-4: in-progress
   4-1-subscription-ui-and-stripe-handoff: done
-  4-2-deep-link-handling-and-activation: ready-for-dev
+  4-2-deep-link-handling-and-activation: done
+  4-3-supabase-auth-google-integration: in-progress
+  4-4-cloud-pro-status-sync: ready-for-dev
   epic-4-retrospective: optional
 
   epic-5: backlog
-  5-1-local-history-persistence: backlog
+  5-1-hybrid-history-persistence: backlog
   5-2-quote-translate-card-generation: backlog
+  5-3-history-search-and-export: backlog
   epic-5-retrospective: optional

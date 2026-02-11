@@ -1,5 +1,5 @@
 pub const TRANSLATION_PROMPT: &str = "You are a professional translator. Translate the following text to {target_lang}. \
-Return a valid JSON object ONLY. Do not wrap it in markdown code blocks. \
+You MUST return a valid JSON object. NO MARKDOWN. NO CODE BLOCKS. NO PREAMBLE. NO TEXT OUTSIDE THE JSON. \
 Structure: { \"translation\": \"string\", \"hazard_level\": \"safe\" | \"low\" | \"medium\" | \"high\", \"hazard_reason\": \"string or null\" } \n\nText: {text}";
 
 pub const EXPLAINER_PROMPT: &str = "You are a patient and clear teacher. Explain the following concept, term, or text simply and concisely in {lang}. \

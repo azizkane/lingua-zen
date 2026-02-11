@@ -1,6 +1,6 @@
 # Story 4.2: Deep Link Handling & Activation
 
-Status: in-progress
+Status: done
 
 ## Story
 
@@ -18,20 +18,20 @@ So that I don't have to manual enter a license key.
 
 ## Tasks / Subtasks
 
-- [ ] Task 1: Protocol Registration
-  - [ ] Configure `tauri.conf.json` to register the `lingua-zen` scheme.
-- [ ] Task 2: Deep Link Interceptor
-  - [ ] Implement the `on_uri_scheme` or `single_instance` listener in `main.rs`.
-  - [ ] Parse the activation parameter.
-- [ ] Task 3: Activation Logic
-  - [ ] Add `save_pro_status` command in `store/mod.rs`.
-  - [ ] Trigger store update and frontend notification on activation.
+- [x] Task 1: Protocol Registration
+  - [x] Configured `tauri.conf.json` with `com.linguazen.app` and `lingua-zen` scheme.
+- [x] Task 2: Deep Link Interceptor
+  - [x] Integrated `tauri-plugin-deep-link` and `tauri-plugin-single-instance`.
+  - [x] Implemented argument parsing in `lib.rs` to detect activation URLs.
+- [x] Task 3: Activation Logic
+  - [x] Added `get_pro_active` and `save_pro_status` commands in `store/mod.rs`.
+  - [x] Implemented Zustand listener for `pro-update` to sync UI state live.
 
 ## Dev Notes
 
 ### Technical Stack
-- **OS Integration:** `tauri-plugin-single-instance` or standard protocol registry.
-- **Deep Link:** `lingua-zen://activate`.
+- **OS Integration:** `tauri-plugin-single-instance` handles secondary process launches and captures URL arguments.
+- **Persistence:** `tauri-plugin-store` stores `is_pro` boolean.
 
 ## Dev Agent Record
 
@@ -42,5 +42,12 @@ gpt-4o
 ### Debug Log References
 
 ### Completion Notes List
+- Successfully registered custom protocol.
+- Implemented live activation via deep link interceptor.
+- Synced Pro status across all application windows.
 
 ### File List
+- `src-tauri/tauri.conf.json`
+- `src-tauri/src/lib.rs`
+- `src-tauri/src/store/mod.rs`
+- `src/lib/stores/useZenFocusStore.ts`

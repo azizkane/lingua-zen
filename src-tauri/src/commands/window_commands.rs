@@ -1,4 +1,4 @@
-use tauri::{WebviewWindow, AppHandle};
+use tauri::{WebviewWindow, AppHandle, Manager};
 use tauri_plugin_opener::OpenerExt;
 use std::sync::atomic::{AtomicBool, Ordering};
 use once_cell::sync::Lazy;
@@ -8,6 +8,15 @@ use dotenvy::dotenv;
 // Global state for window behaviors
 static IS_STICKY: Lazy<AtomicBool> = Lazy::new(|| AtomicBool::new(false));
 static IS_DRAGGING: Lazy<AtomicBool> = Lazy::new(|| AtomicBool::new(false));
+
+#[tauri::command]
+pub async fn open_settings(app: AppHandle) -> Result<(), String> {
+    if let Some(window) = app.get_webview_window("settings") {
+        window.show().map_err(|e| e.to_string())?;
+        window.set_focus().map_err(|e| e.to_string())?;
+    }
+    Ok(())
+}
 
 #[tauri::command]
 pub async fn hide_window(window: WebviewWindow) -> Result<(), String> {
